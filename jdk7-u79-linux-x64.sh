@@ -1,5 +1,5 @@
 echo "Downloading JDK 7u79 for Linux(x64)..."
-wget http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
 
 echo "Extracting JDK files..."
 tar -xvf jdk-7u79-linux-x64.tar.gz
