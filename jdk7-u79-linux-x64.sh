@@ -16,3 +16,12 @@ sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.7
 sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.7.0/bin/javaws" 1
 
 echo "JDK 1.7.0_79 has been installed."
+
+sudo update-alternatives --config java
+java -version
+
+sudo update-alternatives --config javac
+javac -version
+
+sudo update-alternatives --config javaws
+javaws -version
