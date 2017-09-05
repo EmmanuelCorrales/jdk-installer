@@ -1,27 +1,27 @@
-echo "Downloading JDK 8u101 for Linux(x64)..."
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz
+url=http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz
+filename=jdk.tar.gz
+jdk_version=1.8.0_144
+jvm_dir=/usr/lib/jvm
+jdk_dir=$jvm_dir/jdk$jdk_version
 
-echo "Extracting JDK files..."
-tar -xvf jdk-8u101-linux-x64.tar.gz
+echo "Downloading JDK $jdk_version for Linux(x64)..."
+wget -O - --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" $url > $filename
 
-echo "Creating folder at /usr/lib/jvm/jdk1.8.0 "
-sudo mkdir -p /usr/lib/jvm/jdk1.8.0
-
-echo "Copying JDK files to /usr/lib/jvm/jdk1.8.0 "
-sudo mv jdk1.8.0_101/* /usr/lib/jvm/jdk1.8.0/
+echo "Extracting JDK files"
+tar -xvf $filename --directory $jvm_dir
 
 echo "Setting up jvm..."
-sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0/bin/java" 1
-sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0/bin/javac" 1
-sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.8.0/bin/javaws" 1
+update-alternatives --install "/usr/bin/java" "java" "$jdk_dir/bin/java" 1
+update-alternatives --install "/usr/bin/javac" "javac" "$jdk_dir/bin/javac" 1
+update-alternatives --install "/usr/bin/javaws" "javaws" "$jdk_dir/bin/javaws" 1
 
-echo "JDK 1.8.0_101 has been installed."
+echo "JDK $jdk_version has been installed."
 
-sudo update-alternatives --config java
+update-alternatives --config java
 java -version
 
-sudo update-alternatives --config javac
+update-alternatives --config javac
 javac -version
 
-sudo update-alternatives --config javaws
+update-alternatives --config javaws
 javaws -version
