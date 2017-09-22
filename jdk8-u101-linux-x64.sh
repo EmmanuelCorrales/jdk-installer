@@ -1,3 +1,4 @@
+#!/bin/bash
 url=http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz
 filename=jdk.tar.gz
 jdk_version=1.8.0_144
@@ -8,6 +9,7 @@ echo "Downloading JDK $jdk_version for Linux(x64)..."
 wget -O - --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" $url > $filename
 
 echo "Extracting JDK files"
+mkdir -p $jvm_dir
 tar -xvf $filename --directory $jvm_dir
 
 echo "Setting up jvm..."
