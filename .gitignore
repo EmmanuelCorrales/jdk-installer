@@ -1,1 +1,5 @@
 jdk.tar.gz
+
+# Vim
+*.swp
+*.swo
