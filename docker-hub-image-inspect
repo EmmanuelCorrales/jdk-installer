@@ -70,10 +70,10 @@ check_args() {
   if (($# != 2)); then
     echo "Error:
     Two arguments must be provided - $# provided.
-  
+
     Usage:
       ./get-image-config.sh <image> <tag>
-      
+
 Aborting."
     exit 1
   fi
